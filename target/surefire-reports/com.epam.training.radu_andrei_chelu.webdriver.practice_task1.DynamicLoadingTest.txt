@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.epam.training.radu_andrei_chelu.webdriver.practice_task1.DynamicLoadingTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 23.72 s -- in com.epam.training.radu_andrei_chelu.webdriver.practice_task1.DynamicLoadingTest
