@@ -13,11 +13,17 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
 class Task1Test {
 
+    private static final String DYNAMIC_LOADING_URL = "https://the-internet.herokuapp.com/dynamic_loading/1";
+
+    private static final By START_BUTTON = By.cssSelector("#start button");
+    private static final By LOADING_INDICATOR = By.id("loading");
+    private static final By FINISH_MESSAGE = By.id("finish");
+
     private WebDriver driver;
     private WebDriverWait wait;
 
     @BeforeEach
-    void setUp() {
+    void setUpTest() {
         ChromeOptions options = new ChromeOptions();
         options.setBinary("/usr/bin/chromium-browser");
 
@@ -25,22 +31,22 @@ class Task1Test {
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         driver.manage().window().maximize();
-        driver.get("https://the-internet.herokuapp.com/dynamic_loading/1");
+        driver.get(DYNAMIC_LOADING_URL);
     }
 
     @Test
-    void helloWorldAppearsAfterLoading() {
-        WebElement startButton = wait.until(elementToBeClickable(By.cssSelector("#start button")));
+    void helloWorldAfterLoading() {
+        WebElement startButton = wait.until(elementToBeClickable(START_BUTTON));
         startButton.click();
 
-        wait.until(invisibilityOfElementLocated(By.id("loading")));
-        WebElement message = wait.until(visibilityOfElementLocated(By.id("finish")));
+        wait.until(invisibilityOfElementLocated(LOADING_INDICATOR));
+        WebElement message = wait.until(visibilityOfElementLocated(FINISH_MESSAGE));
 
         assertEquals("Hello World!", message.getText());
     }
 
     @AfterEach
-    void tearDown() {
+    void testDown() {
         if (driver != null) {
             driver.quit();
         }
