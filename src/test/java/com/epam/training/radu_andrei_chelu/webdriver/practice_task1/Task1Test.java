@@ -15,8 +15,8 @@ class Task1Test {
 
     private static final String DYNAMIC_LOADING_URL = "https://the-internet.herokuapp.com/dynamic_loading/1";
 
-    private static final By START_BUTTON = By.cssSelector("#start button");
-    private static final By LOADING_INDICATOR = By.id("loading");
+    private static final By START = By.cssSelector("#start button");
+    private static final By LOADING = By.id("loading");
     private static final By FINISH_MESSAGE = By.id("finish");
 
     private WebDriver driver;
@@ -36,10 +36,10 @@ class Task1Test {
 
     @Test
     void helloWorldAfterLoading() {
-        WebElement startButton = wait.until(elementToBeClickable(START_BUTTON));
+        WebElement startButton = wait.until(elementToBeClickable(START));
         startButton.click();
 
-        wait.until(invisibilityOfElementLocated(LOADING_INDICATOR));
+        wait.until(invisibilityOfElementLocated(LOADING));
         WebElement message = wait.until(visibilityOfElementLocated(FINISH_MESSAGE));
 
         assertEquals("Hello World!", message.getText());
