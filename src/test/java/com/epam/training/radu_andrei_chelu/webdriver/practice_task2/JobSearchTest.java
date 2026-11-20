@@ -31,11 +31,13 @@ public class JobSearchTest {
 
         driver = new ChromeDriver(options);
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        driver.manage().window().maximize();
     }
 
     @ParameterizedTest
     @CsvSource({
-            "java, all available countries"
+            "java, All available countries"
     })
     public void userCanSearchForPositionByCriteria(String keyword, String location){
         String jobPageText = new HomePage(driver, "https://www.epam.com/")
@@ -43,9 +45,10 @@ public class JobSearchTest {
                 .acceptCookies()
                 .clickCareersPageButton()
                 .startYourSearchButton()
+                .acceptCookies()
                 .selectLocation(location)
-                .enterKeyword(keyword)
                 .selectRemote()
+                .enterKeyword(keyword)
                 .search()
                 .openLatestJob()
                 .getPageText();

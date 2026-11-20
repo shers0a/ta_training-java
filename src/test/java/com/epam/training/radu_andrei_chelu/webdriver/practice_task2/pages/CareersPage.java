@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 
 public class CareersPage extends BasePage {
-    private final By startSearchButton = By.cssSelector(".pinned-button a.button-body"); //css selector
+    private final By startSearchButton = By.partialLinkText("START YOUR SEARCH");
 
     public CareersPage(WebDriver driver){
         super(driver);

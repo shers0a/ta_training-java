@@ -7,8 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
+import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
 public class JobSearchPage extends BasePage {
 
@@ -35,6 +34,7 @@ public class JobSearchPage extends BasePage {
         wait.until(visibilityOf(keywordInput));
         keywordInput.clear();
         keywordInput.sendKeys(keyword);
+
         return this;
     }
 
@@ -43,16 +43,39 @@ public class JobSearchPage extends BasePage {
 
         By option = By.xpath("//div[contains(@class,'dropdown__option') and normalize-space()='" + location + "']");
         wait.until(elementToBeClickable(option)).click();
+
         return this;
     }
 
     public JobSearchPage selectRemote(){
+        WebElement oldFirstJob = null;
+
+        if(jobTitles != null && !jobTitles.isEmpty()){
+            oldFirstJob = jobTitles.get(0);
+        }
+
         wait.until(elementToBeClickable(remoteLabel)).click();
+
+        if(oldFirstJob != null){
+            wait.until(stalenessOf(oldFirstJob));
+        }
+
         return this;
     }
 
     public JobSearchPage search(){
+        WebElement oldFirstJob = null;
+
+        if(jobTitles != null && !jobTitles.isEmpty()){
+            oldFirstJob = jobTitles.get(0);
+        }
+
         wait.until(elementToBeClickable(searchButton)).click();
+
+        if(oldFirstJob != null){
+            wait.until(stalenessOf(oldFirstJob));
+        }
+
         return this;
     }
 
@@ -60,5 +83,11 @@ public class JobSearchPage extends BasePage {
         wait.until(driver -> !jobTitles.isEmpty());
         wait.until(elementToBeClickable(jobTitles.get(0))).click();
         return new JobDetailsPage(driver);
+    }
+
+    public JobSearchPage acceptCookies(){
+        super.acceptCookiesAndWaitForBannerDisappear();
+
+        return this;
     }
 }
