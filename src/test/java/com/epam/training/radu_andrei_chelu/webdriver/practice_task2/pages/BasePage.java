@@ -1,5 +1,6 @@
 package com.epam.training.radu_andrei_chelu.webdriver.practice_task2.pages;
 
+import com.epam.training.radu_andrei_chelu.webdriver.practice_task2.config.TestConfig;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.TimeoutException;
@@ -13,8 +14,8 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.invisibilityOfEl
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 public abstract class BasePage {
-    private static final Duration TIMEOUT = Duration.ofSeconds(15);
-    private static final Duration OPTIONAL_BANNER_TIMEOUT = Duration.ofSeconds(5);
+    private static final Duration TIMEOUT = TestConfig.timeout();
+    private static final Duration OPTIONAL_BANNER_TIMEOUT = TestConfig.optionalBannerTimeout();
 
     private final By acceptCookiesButton = By.id("onetrust-accept-btn-handler"); // ID locator
     private final By acceptCookiesBanner = By.id("onetrust-banner-sdk");               // ID locator

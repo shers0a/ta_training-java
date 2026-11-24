@@ -1,5 +1,6 @@
 package com.epam.training.radu_andrei_chelu.webdriver.practice_task2;
 
+import com.epam.training.radu_andrei_chelu.webdriver.practice_task2.config.TestConfig;
 import com.epam.training.radu_andrei_chelu.webdriver.practice_task2.pages.HomePage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,10 +18,6 @@ import java.nio.file.Path;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class JobSearchTest {
-    private static final String HOME_URL = "https://www.epam.com/";
-
-    // Snap Chromium has a private /tmp, so its default profile dir (where Chrome writes
-    // DevToolsActivePort) is invisible to chromedriver. The snap's "common" dir is shared with the host.
     private static final Path SNAP_CHROMIUM = Path.of("/snap/bin/chromium");
     private static final Path SNAP_CHROMIUM_DATA = Path.of(System.getProperty("user.home"), "snap", "chromium", "common");
 
@@ -46,7 +43,7 @@ public class JobSearchTest {
             "Python, All available countries"
     })
     public void userCanSearchForPositionByCriteria(String keyword, String location) {
-        String jobPageText = new HomePage(driver, HOME_URL)
+        String jobPageText = new HomePage(driver, TestConfig.homeUrl())
                 .open()
                 .acceptCookies()
                 .clickCareersPageButton()

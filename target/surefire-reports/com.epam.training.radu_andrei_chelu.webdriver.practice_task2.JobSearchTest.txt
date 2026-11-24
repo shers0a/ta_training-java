@@ -1,21 +1,10 @@
 -------------------------------------------------------------------------------
 Test set: com.epam.training.radu_andrei_chelu.webdriver.practice_task2.JobSearchTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 47.87 s <<< FAILURE! -- in com.epam.training.radu_andrei_chelu.webdriver.practice_task2.JobSearchTest
-com.epam.training.radu_andrei_chelu.webdriver.practice_task2.JobSearchTest.userCanSearchForPositionByCriteria(String, String)[2] -- Time elapsed: 33.02 s <<< ERROR!
-org.openqa.selenium.TimeoutException: 
-Expected condition failed: waiting for com.epam.training.radu_andrei_chelu.webdriver.practice_task2.pages.JobSearchPage$$Lambda/0x0000000018299cf0@66e8997c
-(tried for 15 seconds with 500 milliseconds interval)
-Build info: version: '4.52.0', revision: '5b37fd4 5b37fd4d98c08d6a43a0790417f91b8f6f32fb5c'
-System info: os.name: 'Linux', os.arch: 'amd64', os.version: '7.0.0-44-generic', java.version: '25.0.5.1'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 157.0.8103.50, chrome: {chromedriverVersion: 157.0.8103.50 (049750111b1e..., userDataDir: /home/sher/snap/chromium/co...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:38963}, goog:processID: 51768, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:38963/devtoo..., se:cdpVersion: 157.0.8103.50, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (X11; Ubuntu; L..., webauthn:extension:cmtgKey: true, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 2c2dd6fc65ebd04e5adce2dbdaefa90b
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:85)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:234)
-	at com.epam.training.radu_andrei_chelu.webdriver.practice_task2.pages.JobSearchPage.clickAndWaitForResultsRefresh(JobSearchPage.java:81)
-	at com.epam.training.radu_andrei_chelu.webdriver.practice_task2.pages.JobSearchPage.selectRemote(JobSearchPage.java:53)
-	at com.epam.training.radu_andrei_chelu.webdriver.practice_task2.JobSearchTest.userCanSearchForPositionByCriteria(JobSearchTest.java:56)
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 3.607 s <<< FAILURE! -- in com.epam.training.radu_andrei_chelu.webdriver.practice_task2.JobSearchTest
+com.epam.training.radu_andrei_chelu.webdriver.practice_task2.JobSearchTest.userCanSearchForPositionByCriteria(String, String)[1] -- Time elapsed: 1.994 s <<< ERROR!
+java.lang.ExceptionInInitializerError
+	at com.epam.training.radu_andrei_chelu.webdriver.practice_task2.JobSearchTest.userCanSearchForPositionByCriteria(JobSearchTest.java:46)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
 	at java.base/java.util.Optional.ifPresent(Optional.java:178)
 	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186)
@@ -44,4 +33,49 @@ Session ID: 2c2dd6fc65ebd04e5adce2dbdaefa90b
 	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+Caused by: java.lang.IllegalStateException: Config value 'timeout.seconds' must be a whole number of seconds, got: abc
+	at com.epam.training.radu_andrei_chelu.webdriver.practice_task2.config.TestConfig.seconds(TestConfig.java:55)
+	at com.epam.training.radu_andrei_chelu.webdriver.practice_task2.config.TestConfig.timeout(TestConfig.java:21)
+	at com.epam.training.radu_andrei_chelu.webdriver.practice_task2.pages.BasePage.<clinit>(BasePage.java:17)
+	... 29 more
+Caused by: java.lang.NumberFormatException: For input string: "abc"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Long.parseLong(Long.java:594)
+	at java.base/java.lang.Long.parseLong(Long.java:698)
+	at com.epam.training.radu_andrei_chelu.webdriver.practice_task2.config.TestConfig.seconds(TestConfig.java:53)
+	... 31 more
+
+com.epam.training.radu_andrei_chelu.webdriver.practice_task2.JobSearchTest.userCanSearchForPositionByCriteria(String, String)[2] -- Time elapsed: 1.552 s <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class com.epam.training.radu_andrei_chelu.webdriver.practice_task2.pages.HomePage
+	at com.epam.training.radu_andrei_chelu.webdriver.practice_task2.JobSearchTest.userCanSearchForPositionByCriteria(JobSearchTest.java:46)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:186)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:803)
+	at java.base/java.util.stream.ReferencePipeline$7$1FlatMap.accept(ReferencePipeline.java:293)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632)
+	at java.base/java.util.stream.ReferencePipeline$7$1FlatMap.accept(ReferencePipeline.java:293)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:153)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:176)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:632)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	... 29 more
 

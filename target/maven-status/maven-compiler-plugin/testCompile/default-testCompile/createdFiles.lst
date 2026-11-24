@@ -1,5 +1,6 @@
 com/epam/training/radu_andrei_chelu/webdriver/practice_task2/pages/JobSearchPage.class
 com/epam/training/radu_andrei_chelu/webdriver/practice_task2/JobSearchTest.class
 com/epam/training/radu_andrei_chelu/webdriver/practice_task1/Task1Test.class
+com/epam/training/radu_andrei_chelu/webdriver/practice_task2/config/TestConfig.class
 com/epam/training/radu_andrei_chelu/webdriver/practice_task2/pages/JobDetailsPage.class
 com/epam/training/radu_andrei_chelu/webdriver/practice_task2/pages/HomePage.class

@@ -1,7 +1,8 @@
-/home/sher/epam/ta_training-java/src/test/java/com/epam/training/radu_andrei_chelu/webdriver/practice_task1/Task1Test.java
-/home/sher/epam/ta_training-java/src/test/java/com/epam/training/radu_andrei_chelu/webdriver/practice_task2/JobSearchTest.java
-/home/sher/epam/ta_training-java/src/test/java/com/epam/training/radu_andrei_chelu/webdriver/practice_task2/pages/BasePage.java
-/home/sher/epam/ta_training-java/src/test/java/com/epam/training/radu_andrei_chelu/webdriver/practice_task2/pages/CareersPage.java
-/home/sher/epam/ta_training-java/src/test/java/com/epam/training/radu_andrei_chelu/webdriver/practice_task2/pages/HomePage.java
-/home/sher/epam/ta_training-java/src/test/java/com/epam/training/radu_andrei_chelu/webdriver/practice_task2/pages/JobDetailsPage.java
-/home/sher/epam/ta_training-java/src/test/java/com/epam/training/radu_andrei_chelu/webdriver/practice_task2/pages/JobSearchPage.java
+/home/sher/epam/tasks/ta_training-java/src/test/java/com/epam/training/radu_andrei_chelu/webdriver/practice_task1/Task1Test.java
+/home/sher/epam/tasks/ta_training-java/src/test/java/com/epam/training/radu_andrei_chelu/webdriver/practice_task2/JobSearchTest.java
+/home/sher/epam/tasks/ta_training-java/src/test/java/com/epam/training/radu_andrei_chelu/webdriver/practice_task2/config/TestConfig.java
+/home/sher/epam/tasks/ta_training-java/src/test/java/com/epam/training/radu_andrei_chelu/webdriver/practice_task2/pages/BasePage.java
+/home/sher/epam/tasks/ta_training-java/src/test/java/com/epam/training/radu_andrei_chelu/webdriver/practice_task2/pages/CareersPage.java
+/home/sher/epam/tasks/ta_training-java/src/test/java/com/epam/training/radu_andrei_chelu/webdriver/practice_task2/pages/HomePage.java
+/home/sher/epam/tasks/ta_training-java/src/test/java/com/epam/training/radu_andrei_chelu/webdriver/practice_task2/pages/JobDetailsPage.java
+/home/sher/epam/tasks/ta_training-java/src/test/java/com/epam/training/radu_andrei_chelu/webdriver/practice_task2/pages/JobSearchPage.java
