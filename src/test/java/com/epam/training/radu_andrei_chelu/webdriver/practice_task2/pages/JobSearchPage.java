@@ -44,8 +44,11 @@ public class JobSearchPage extends BasePage {
 
     public JobSearchPage selectLocation(String location) {
         wait.until(elementToBeClickable(locationDropdown)).click();
+        
         By option = By.xpath(String.format(LOCATION_OPTION_XPATH, location));
+        
         wait.until(elementToBeClickable(option)).click();
+
         return this;
     }
 

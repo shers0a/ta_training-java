@@ -8,18 +8,33 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.io.FileHandler;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class JobSearchTest {
     private static final String HOME_URL = "https://www.epam.com/";
 
+    // Snap Chromium has a private /tmp, so its default profile dir (where Chrome writes
+    // DevToolsActivePort) is invisible to chromedriver. The snap's "common" dir is shared with the host.
+    private static final Path SNAP_CHROMIUM = Path.of("/snap/bin/chromium");
+    private static final Path SNAP_CHROMIUM_DATA = Path.of(System.getProperty("user.home"), "snap", "chromium", "common");
+
     private WebDriver driver;
+    private Path profileDir;
 
     @BeforeEach
-    public void startTest() {
+    public void startTest() throws IOException {
         ChromeOptions options = new ChromeOptions();
-        options.setBinary("/usr/bin/chromium-browser");
+        if (Files.isExecutable(SNAP_CHROMIUM) && Files.isDirectory(SNAP_CHROMIUM_DATA)) {
+            profileDir = Files.createTempDirectory(SNAP_CHROMIUM_DATA, "selenium-profile-");
+            options.setBinary(SNAP_CHROMIUM.toString());
+            options.addArguments("--user-data-dir=" + profileDir);
+        }
 
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
@@ -52,6 +67,9 @@ public class JobSearchTest {
     public void quitTest() {
         if (driver != null) {
             driver.quit();
+        }
+        if (profileDir != null) {
+            FileHandler.delete(profileDir.toFile());
         }
     }
 }
